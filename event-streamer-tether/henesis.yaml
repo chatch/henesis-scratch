@@ -1,0 +1,28 @@
+name: hatch-tether-test
+version: v1    # (TBD) The version of this yaml file.
+apiVersion: v1 # (TBD) The version of Henesis api. The type of message you receive can be changed depending on this version.
+
+blockchain:
+  platform: ethereum
+  network: mainnet
+  threshold: 6  # optional.
+                # Ethereum: (default: 12, min: 6)
+                # Klaytn: (default: 0, min: 0)
+
+filters:
+  contracts:
+    - address: '0xdac17f958d2ee523a2206206994597c13d831ec7'
+      name: TetherToken
+      files: # The events of the contracts listed below can be combined together at this address.
+        - path: ./contracts/TetherToken.sol
+          contractName: TetherToken
+          compilerVersion: 0.4.18
+
+provider:
+  type: webSocket
+# if you want to use webhook, you need to place it
+#  type: webhook
+#  url: https://localhost:8080
+#  method: POST
+#  headers:
+#    Authorization: 'Bearer YOUR-OWN-TOKEN'
