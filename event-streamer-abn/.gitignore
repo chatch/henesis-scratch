@@ -1,0 +1,5 @@
+# not open sourced yet so don't commit these:
+/contracts/ABN* 
+
+# copy config.json.example to config.json and add keys etc.
+config.json
