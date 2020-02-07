@@ -1,0 +1,5 @@
+{
+  "clientId": "<henesis client id, see account:describe>",
+  "integrationId": "<integration id, see 'henesis integration:status'",
+  "subscriptionId": "<subscription id>"
+}

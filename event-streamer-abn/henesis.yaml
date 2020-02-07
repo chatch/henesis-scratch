@@ -1,0 +1,31 @@
+name: hatch-abn-test
+version: v1    # (TBD) The version of this yaml file.
+apiVersion: v1 # (TBD) The version of Henesis api. The type of message you receive can be changed depending on this version.
+
+blockchain:
+  platform: ethereum
+  network: rinkeby
+  threshold: 6  # optional.
+                # Ethereum: (default: 12, min: 6)
+                # Klaytn: (default: 0, min: 0)
+
+filters:
+  contracts:
+    - address: '0xA863937683Cae1D732E2Af9C2FB752213DB1383c'
+      name: ABNTokenFull
+      files: # The events of the contracts listed below can be combined together at this address.
+        - path: ./contracts/AdminUpgradeabilityProxy.sol
+          contractName: AdminUpgradeabilityProxy
+          compilerVersion: 0.5.3
+        - path: ./contracts/ABNTokenFull.sol
+          contractName: ERC721 # ABNTokenFull
+          compilerVersion: 0.5.12
+
+provider:
+  type: webSocket
+# if you want to use webhook, you need to place it
+#  type: webhook
+#  url: https://localhost:8080
+#  method: POST
+#  headers:
+#    Authorization: 'Bearer YOUR-OWN-TOKEN'
